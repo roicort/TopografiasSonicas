@@ -4,6 +4,29 @@
       {
         "type": "Feature",
         "properties": {
+          "name": "Aves Plaza Principal",
+          "location":"Plaza de Armas",
+          "date": "15-08-2016",
+          "time": "17:30",
+          "equipment": "celular",
+          "duration": "0:59",
+          "extension": "wav",
+          "samplerate": "44100",
+          "bitdepth": "24",
+          "author": "Mario Rodriguez",
+          "url":"https://soundcloud.com/topografias_sonicas/aves-plaza-principal"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -110.21575782,
+            -10.857768
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
           "name": "Danzón en la plaza de armas de Tampico",
           "location":"Plaza de Armas",
           "date": "15-08-2016",
@@ -19,8 +42,31 @@
         "geometry": {
           "type": "Point",
           "coordinates": [
-            22.21575782,
-            -97.857768
+            -100.21575782,
+            5.857768
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Grillos en la ciudad",
+          "location":"Plaza de Armas",
+          "date": "15-08-2016",
+          "time": "17:30",
+          "equipment": "celular",
+          "duration": "0:59",
+          "extension": "wav",
+          "samplerate": "44100",
+          "bitdepth": "24",
+          "author": "Mario Rodriguez",
+          "url":"https://soundcloud.com/topografias_sonicas/grillos-en-la-ciudad"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -100.21575782,
+            57.857768
           ]
         }
       }
