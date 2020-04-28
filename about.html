@@ -1,0 +1,26 @@
+---
+title: Acerca
+description: 
+---
+<p>
+Topografías sónicas es un proyecto que nace gracias al Programa de estímulo a la creación y desarrollo artístico (PECDA) de Tamaulipas, emisión 23.
+Tiene principalmente dos propósitos. El primero es recopilar y preservar la identidad sonora actual de los espacios tamaulipecos y disponerlos para la consulta del público con la finalidad de concientizar sobre el patrimonio sonoro existente, además de brindar a futuras generaciones una referencia no-visual de nuestro estado, ya que hoy en día no contamos con una memoria auditiva de los lugares en los que convivimos
+</p>
+<p>
+Esta identidad sonora de Tamaulipas se ha dispuesto en un mapa sonoro digital para libre acceso a la población. Esperamos éste sirva para crear una conciencia y hábito de escucha atenta de la vida acústica de los espacios tamaulipecos.
+</p>
+
+<p>
+	El segundo propósito de Topografías sónicas es converger la acústica ecológica con la música electroacústica valiéndose del uso de la tecnología y los procesos de escucha que derivan de ésta para la composición de miniaturas que unen las marcas sonoras de Tamaulipas con los procesos de la música electroacústica y así dotar a estos materiales sonoros de un énfasis y una sublimación de sus particularidades tanto acústicas como sociales.
+</p>
+
+<p class="editor-link" style="text-align: center;"><a href="cloudcannon:collections/_staff_members/" class="btn"><strong>&#9998;</strong> Manage Staff members</a></p>
+<ul class="staff">
+	{% for person in site.staff_members %}
+		<li>
+			<div class="square-image"><img src="{% include relative-src.html src=person.image_path %}" alt="{{ person.name }}"/></div>
+			<div class="name"><a target="_blank" href="https://twitter.com/{{ person.twitter }}">{{ person.name }}</a></div>
+			<div class="position">{{ person.position }}</div>
+		</li>
+	{% endfor %}
+</ul>

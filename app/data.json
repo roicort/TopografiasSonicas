@@ -1,0 +1,53 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Strangers",
+          "date": "25-05-2020",
+          "author": "Sigrid",
+          "url":"https://soundcloud.com/thisissigrid/strangers"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            6.148180961608887,
+            62.4722989208715
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Dont Kill My Vibe",
+          "date": "25-05-2020",
+          "author": "Sigrid",
+          "url":"https://soundcloud.com/thisissigrid/dont-kill-my-vibe"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -99.00878906249999,
+            23.895882703682627
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "I Don't Want To Know",
+          "date": "25-05-2020",
+          "author": "Sigrid",
+          "url":"https://soundcloud.com/thisissigrid/i-dont-want-to-know"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -89.00878906249999,
+            43.895882703682627
+          ]
+        }
+      }
+    ]
+  }

@@ -1,0 +1,16 @@
+- name: App
+  link: /app/
+  new_window: false
+  highlight: false
+- name: Acerca
+  link: /about/
+  new_window: false
+  highlight: false
+- name: Colección
+  link: /blog/
+  new_window: false
+  highlight: false
+- name: Contacto
+  link: /contact/
+  new_window: false
+  highlight: false
