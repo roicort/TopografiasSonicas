@@ -1,14 +1,9 @@
 ---
-title: App
-heading: Topologías Sónicas
-description: 
+layout: default
 ---
 
 <html>
 <head>
-  <br>
-  <br>
-
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
   <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
   <script src="https://w.soundcloud.com/player/api.js"></script>
@@ -16,7 +11,7 @@ description:
 	<style>
 		#map {
 			width: 100%;
-			height: 80vh;
+			height:75vh;
 		}
 	</style>
 
@@ -26,8 +21,7 @@ description:
 <body>
 
 <div id='map'></div>
-<iframe id='iframe' width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"src="https://w.soundcloud.com/player/?url"></iframe>
-
+<iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=" width="100%" height="130px" scrolling="no" frameborder="no"></iframe>
 <script>
 
   function loadJSON(callback) {   
@@ -54,12 +48,13 @@ description:
 	}).addTo(map);
 
   function getInfo(e) {
-    console.log(e.target.feature.properties);
     url = e.target.feature.properties.url
-    var iframeElement   = document.querySelector('iframe');
-    var widget         = SC.Widget(iframeElement);
-    widget.load(url)
-    widget.play()
+    var widgetIframe = document.getElementById('sc-widget'),
+    widget = SC.Widget(widgetIframe);
+    widget.load(url, {show_artwork: false, autoplay: true});
+    widget.bind(SC.Widget.Events.READY, function() {
+      widget.play()
+    });
 }
   function onEachFeature(feature, layer) {
     // does this feature have a property named popupContent?
@@ -86,11 +81,12 @@ description:
                 "<td>" + "Lon: " + "</td>" +
                 "<td>" + feature.geometry.coordinates[1] + "</td>" +
                 "</tr>"+
-                "</tbody>"+"</table>";
+                "</tbody>"+"</table>"
         layer.bindPopup(infopop);
     }
     layer.on({
         click: getInfo
+        
     });
 }
 
