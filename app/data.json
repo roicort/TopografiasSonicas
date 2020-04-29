@@ -5,68 +5,505 @@
         "type": "Feature",
         "properties": {
           "name": "Aves Plaza Principal",
-          "location":"Plaza de Armas",
-          "date": "15-08-2016",
-          "time": "17:30",
-          "equipment": "celular",
-          "duration": "0:59",
+          "location":"Unknown",
+          "date": "DD-MM-YYYY",
+          "time": "00:00",
+          "device": "device",
+          "duration": "1:00",
           "extension": "wav",
-          "samplerate": "44100",
+          "samplerate": "44100hz",
           "bitdepth": "24",
-          "author": "Mario Rodriguez",
+          "author": "John Doe",
           "url":"https://soundcloud.com/topografias_sonicas/aves-plaza-principal"
         },
         "geometry": {
           "type": "Point",
           "coordinates": [
-            -110.21575782,
-            -10.857768
+            0.0,
+            0.0
           ]
         }
       },
       {
         "type": "Feature",
         "properties": {
-          "name": "Danzón en la plaza de armas de Tampico",
-          "location":"Plaza de Armas",
-          "date": "15-08-2016",
-          "time": "17:30",
-          "equipment": "celular",
-          "duration": "0:59",
+          "name": "Grillos En La Ciudad",
+          "location":"Unknown",
+          "date": "DD-MM-YYYY",
+          "time": "00:00",
+          "device": "device",
+          "duration": "1:00",
           "extension": "wav",
-          "samplerate": "44100",
+          "samplerate": "44100hz",
           "bitdepth": "24",
-          "author": "Mario Rodriguez",
-          "url":"https://soundcloud.com/topografias_sonicas/plaza-de-armas-tampico"
-        },
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            -100.21575782,
-            5.857768
-          ]
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {
-          "name": "Grillos en la ciudad",
-          "location":"Plaza de Armas",
-          "date": "15-08-2016",
-          "time": "17:30",
-          "equipment": "celular",
-          "duration": "0:59",
-          "extension": "wav",
-          "samplerate": "44100",
-          "bitdepth": "24",
-          "author": "Mario Rodriguez",
+          "author": "John Doe",
           "url":"https://soundcloud.com/topografias_sonicas/grillos-en-la-ciudad"
         },
         "geometry": {
           "type": "Point",
           "coordinates": [
-            -100.21575782,
-            57.857768
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Ruidos De La Plaza",
+          "location":"Unknown",
+          "date": "DD-MM-YYYY",
+          "time": "00:00",
+          "device": "device",
+          "duration": "1:00",
+          "extension": "wav",
+          "samplerate": "44100hz",
+          "bitdepth": "24",
+          "author": "John Doe",
+          "url":"https://soundcloud.com/topografias_sonicas/ruidos-de-la-plaza"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Avión pasando por la colonia Unidad Nacional",
+          "location":"Unknown",
+          "date": "DD-MM-YYYY",
+          "time": "00:00",
+          "device": "device",
+          "duration": "1:00",
+          "extension": "wav",
+          "samplerate": "44100hz",
+          "bitdepth": "24",
+          "author": "John Doe",
+          "url":"https://soundcloud.com/topografias_sonicas/avion-pasando-por-unidad-nacional"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Pieza Barco Saliendo Del Rio Pánico",
+          "location":"Unknown",
+          "date": "DD-MM-YYYY",
+          "time": "00:00",
+          "device": "device",
+          "duration": "1:00",
+          "extension": "wav",
+          "samplerate": "44100hz",
+          "bitdepth": "24",
+          "author": "John Doe",
+          "url":"https://soundcloud.com/topografias_sonicas/pieza-barco-saliendo-del-rio-panico"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Escolleras Miramar",
+          "location":"Unknown",
+          "date": "DD-MM-YYYY",
+          "time": "00:00",
+          "device": "device",
+          "duration": "1:00",
+          "extension": "wav",
+          "samplerate": "44100hz",
+          "bitdepth": "24",
+          "author": "John Doe",
+          "url":"https://soundcloud.com/topografias_sonicas/escolleras-miramar"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Los Diamantes",
+          "location":"Unknown",
+          "date": "DD-MM-YYYY",
+          "time": "00:00",
+          "device": "device",
+          "duration": "1:00",
+          "extension": "wav",
+          "samplerate": "44100hz",
+          "bitdepth": "24",
+          "author": "John Doe",
+          "url":"https://soundcloud.com/topografias_sonicas/los-diamantes"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "El Huasteco Veracruzano",
+          "location":"Unknown",
+          "date": "DD-MM-YYYY",
+          "time": "00:00",
+          "device": "device",
+          "duration": "1:00",
+          "extension": "wav",
+          "samplerate": "44100hz",
+          "bitdepth": "24",
+          "author": "John Doe",
+          "url":"https://soundcloud.com/topografias_sonicas/el-huasteco-veracruzano"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "LuchaLibre",
+          "location":"Unknown",
+          "date": "DD-MM-YYYY",
+          "time": "00:00",
+          "device": "device",
+          "duration": "1:00",
+          "extension": "wav",
+          "samplerate": "44100hz",
+          "bitdepth": "24",
+          "author": "John Doe",
+          "url":"https://soundcloud.com/topografias_sonicas/luchalibre-1"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "PresentaciónLuchaLibre",
+          "location":"Unknown",
+          "date": "DD-MM-YYYY",
+          "time": "00:00",
+          "device": "device",
+          "duration": "1:00",
+          "extension": "wav",
+          "samplerate": "44100hz",
+          "bitdepth": "24",
+          "author": "John Doe",
+          "url":"https://soundcloud.com/topografias_sonicas/presentacio-nluchalibre-1"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Mercado Zaragoza",
+          "location":"Unknown",
+          "date": "DD-MM-YYYY",
+          "time": "00:00",
+          "device": "device",
+          "duration": "1:00",
+          "extension": "wav",
+          "samplerate": "44100hz",
+          "bitdepth": "24",
+          "author": "John Doe",
+          "url":"https://soundcloud.com/topografias_sonicas/mercado-zaragoza-2"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Plaza de Armas Tampico",
+          "location":"Unknown",
+          "date": "DD-MM-YYYY",
+          "time": "00:00",
+          "device": "device",
+          "duration": "1:00",
+          "extension": "wav",
+          "samplerate": "44100hz",
+          "bitdepth": "24",
+          "author": "John Doe",
+          "url":"https://soundcloud.com/topografias_sonicas/plaza-de-armas-tampico-1"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Pajaros",
+          "location":"Unknown",
+          "date": "DD-MM-YYYY",
+          "time": "00:00",
+          "device": "device",
+          "duration": "1:00",
+          "extension": "wav",
+          "samplerate": "44100hz",
+          "bitdepth": "24",
+          "author": "John Doe",
+          "url":"https://soundcloud.com/topografias_sonicas/pajaros"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Nidal De Pájaros Boulevard Adolfo Lopez",
+          "location":"Unknown",
+          "date": "DD-MM-YYYY",
+          "time": "00:00",
+          "device": "device",
+          "duration": "1:00",
+          "extension": "wav",
+          "samplerate": "44100hz",
+          "bitdepth": "24",
+          "author": "John Doe",
+          "url":"https://soundcloud.com/topografias_sonicas/nidal-de-pajaros-boulevard-adolfo-lopez"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Marimba Andador Salvador Díaz Mirón",
+          "location":"Unknown",
+          "date": "DD-MM-YYYY",
+          "time": "00:00",
+          "device": "device",
+          "duration": "1:00",
+          "extension": "wav",
+          "samplerate": "44100hz",
+          "bitdepth": "24",
+          "author": "John Doe",
+          "url":"https://soundcloud.com/topografias_sonicas/marimba-andador-salvador-diaz-miron"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Mercado Zaragoza",
+          "location":"Unknown",
+          "date": "DD-MM-YYYY",
+          "time": "00:00",
+          "device": "device",
+          "duration": "1:00",
+          "extension": "wav",
+          "samplerate": "44100hz",
+          "bitdepth": "24",
+          "author": "John Doe",
+          "url":"https://soundcloud.com/topografias_sonicas/mercado-zaragoza-1"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Sonidos del Mercado Zaragoza",
+          "location":"Unknown",
+          "date": "DD-MM-YYYY",
+          "time": "00:00",
+          "device": "device",
+          "duration": "1:00",
+          "extension": "wav",
+          "samplerate": "44100hz",
+          "bitdepth": "24",
+          "author": "John Doe",
+          "url":"https://soundcloud.com/topografias_sonicas/mercado-zaragoza"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Plaza de armas Tampico",
+          "location":"Unknown",
+          "date": "DD-MM-YYYY",
+          "time": "00:00",
+          "device": "device",
+          "duration": "1:00",
+          "extension": "wav",
+          "samplerate": "44100hz",
+          "bitdepth": "24",
+          "author": "John Doe",
+          "url":"https://soundcloud.com/topografias_sonicas/plaza-de-armas-tampico"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Barco saliendo del río Pánuco",
+          "location":"Unknown",
+          "date": "DD-MM-YYYY",
+          "time": "00:00",
+          "device": "device",
+          "duration": "1:00",
+          "extension": "wav",
+          "samplerate": "44100hz",
+          "bitdepth": "24",
+          "author": "John Doe",
+          "url":"https://soundcloud.com/topografias_sonicas/farodelasescolleras"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Aduana de Noche",
+          "location":"Unknown",
+          "date": "DD-MM-YYYY",
+          "time": "00:00",
+          "device": "device",
+          "duration": "1:00",
+          "extension": "wav",
+          "samplerate": "44100hz",
+          "bitdepth": "24",
+          "author": "John Doe",
+          "url":"https://soundcloud.com/topografias_sonicas/aduana-de-noche"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Calle Benito Juárez",
+          "location":"Unknown",
+          "date": "DD-MM-YYYY",
+          "time": "00:00",
+          "device": "device",
+          "duration": "1:00",
+          "extension": "wav",
+          "samplerate": "44100hz",
+          "bitdepth": "24",
+          "author": "John Doe",
+          "url":"https://soundcloud.com/topografias_sonicas/calle-benito"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Maniobra Puerto Altamira",
+          "location":"Unknown",
+          "date": "DD-MM-YYYY",
+          "time": "00:00",
+          "device": "device",
+          "duration": "1:00",
+          "extension": "wav",
+          "samplerate": "44100hz",
+          "bitdepth": "24",
+          "author": "John Doe",
+          "url":"https://soundcloud.com/topografias_sonicas/maniobra-puerto-altamira"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            0.0,
+            0.0
           ]
         }
       }
