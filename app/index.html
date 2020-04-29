@@ -8,6 +8,9 @@ layout: default
   <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
   <script src="https://w.soundcloud.com/player/api.js"></script>
 
+  <script src="node_modules/leaflet-search/src/leaflet-search.js"></script>
+  <link rel="stylesheet" href="node_modules/leaflet-search/src/leaflet-search.css">
+
 	<style>
 		#map {
 			width: 100%;
@@ -116,12 +119,25 @@ layout: default
         click: getInfo
         
     });
-}
+    }
+
+
+
 
   loadJSON(function(json) {
-    L.geoJSON(json, {
+    var featuresLayer = new L.geoJSON(json, {
       onEachFeature: onEachFeature
   }).addTo(map);
+  var searchControl = new L.Control.Search({
+		layer: featuresLayer,
+		propertyName: 'name',
+		marker: false,
+		moveToLocation: function(coordinates, title, map) {
+  		map.setView(coordinates, 10); // access the zoom
+		}
+	});
+	
+	map.addControl( searchControl );  //inizialize search control
   });
 
 
