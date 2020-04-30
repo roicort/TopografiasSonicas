@@ -31,6 +31,9 @@ title: App
 			width: 100%;
 			height:90vh;
 		}
+    .header{
+      box-shadow: inset;
+    }
 	</style>
 
 	
@@ -43,7 +46,7 @@ title: App
 <script>
 
   var map = L.map('map').fitWorld();
-  map.setView(new L.LatLng(0.0, -0.0), 2.4);
+  map.setView(new L.LatLng(23.0, -101.0), 5.4);
 
   map.addControl(new L.Control.Fullscreen());
 
@@ -52,7 +55,7 @@ title: App
 		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
 			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
 			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-		id: 'mapbox/light-v9'
+		id: 'mapbox/streets-v11'
 	}).addTo(map);
 
   var sidebar = L.control.sidebar('sidebar', {
@@ -140,7 +143,7 @@ title: App
 
  function zoomin(e){
   var coordinates = e.target.feature.geometry.coordinates;
-  map.flyTo([coordinates[1],coordinates[0]],15);
+  map.flyTo([coordinates[1],coordinates[0]],17);
  }
 
  function onLocationFound(e) {
@@ -164,7 +167,7 @@ title: App
   const randomElement = features[Math.floor(Math.random() * features.length)];
   console.log(randomElement)
   var coordinates = randomElement.geometry.coordinates
-  map.flyTo([coordinates[1],coordinates[0]],18);
+  map.flyTo([coordinates[1],coordinates[0]],17);
   }).addTo(map);
 
   L.easyButton( '<span class="target">&target;</span>', function(){
@@ -204,7 +207,7 @@ title: App
 		layer: featuresLayer,
     propertyName: 'name',
     moveToLocation: function(coordinates, title, map) {
-  	map.flyTo([coordinates.lat,coordinates.lng],18); // access the zoom
+  	map.flyTo([coordinates.lat,coordinates.lng],17); // access the zoom
 		},
 		filterData: function(text, records) {
 			var jsons = fuse.search(text),
