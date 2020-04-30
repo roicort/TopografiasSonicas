@@ -155,7 +155,7 @@ layout: default
   }).addTo(map);
 
   L.easyButton( '<span class="target">&target;</span>', function(){
-  map.locate({setView: true, maxZoom: 16});}, 'Location').addTo(map);
+  map.locate({setView: true, maxZoom: 8});}, 'Location').addTo(map);
 
   function onEachFeature(feature, layer) {
     layer.bindPopup(feature.properties.name);
