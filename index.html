@@ -2,15 +2,29 @@
 title: Home
 description: Mapa Sonoro de Tamaulípas
 ---
+
+<script src='https://unpkg.com/siriwave@1.3.2/dist/siriwave.min.js'></script>
+
+<style>
+	#container {
+	  width: 100%;
+	  height: 40vh;
+	  margin: 0 auto;
+	  padding-top: 4vh;
+	}
+</style>
+
 <section class="hero">
 	<div class="text-container">
 		<h1 class="editable">Topografías <strong>Sónicas</strong></h1>
 		<p class="subtext editable">Mapa sonoro de Tamaulípas</p>
-		<div class="cta button alt"><a href="{{ site.baseurl }}/app/">Descubre</a></div>
 	</div>
+	<div class"editable" id="container"></div>
+	<div class="cta button alt"><a href="{{ site.baseurl }}/app/">Descubre</a></div>
 </section>
-<!--
+
 <div class="content">
+	<!--
 	<section>
 		<div class="container flex">
 			<div class="text editable">
@@ -35,6 +49,12 @@ description: Mapa Sonoro de Tamaulípas
 		</div>
 	</section>
 
+	-->
+	<section>
+		<div class="container flex">
+		<img src="https://mapasonorotamaulipas.files.wordpress.com/2019/11/cropped-banner4.png"/>
+	</section>
+<!-- 
 	<section class="testimonial">
 		<div class="container flex">
 			<div class="testimonial-block">
@@ -51,6 +71,13 @@ description: Mapa Sonoro de Tamaulípas
 		<h2 class="editable"><strong>Improve</strong> your sales process today</h2>
 		<div class="button alt"><a href="#">Get Started Free</a></div>
 	</section>
-
-	 -->
+-->
 </div>
+
+  <script>
+    var SW = new SiriWave({
+      container: document.getElementById("container"),
+	  autostart: true,
+	  speed: 0.01
+    });
+  </script>
