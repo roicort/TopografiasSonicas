@@ -16,6 +16,11 @@ layout: default
   <script src="node_modules/leaflet-sidebar/src/L.Control.Sidebar.js"></script>
   <link rel="stylesheet" href="node_modules/leaflet-sidebar/src/L.Control.Sidebar.css">
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css">
+  <script src="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js"></script>
+
+  <script src="dataGeoJSON.js"></script>
+
 	<style>
 		#map {
 			width: 100%;
@@ -32,20 +37,7 @@ layout: default
 <div id="sidebar"></div>
 <script>
 
-  function loadJSON(callback) {   
-    var xobj = new XMLHttpRequest();
-    xobj.overrideMimeType("application/json");
-    xobj.open('GET', 'data.json', true);
-    xobj.onreadystatechange = function () {
-      if (xobj.readyState == 4 && xobj.status == "200") {
-        callback(JSON.parse(xobj.responseText));
-      }
-    };
-    xobj.send(null);  
-  }
-
-  var map = L.map('map');
-  map.setView([0, 0], 2.5);
+  var map = L.map('map').fitWorld();
 
 	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
 		maxZoom: 18,
@@ -130,13 +122,40 @@ layout: default
                 "</tr>"+
                 "</tbody>"+"</table>"+
                 '<iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=" width="100%" height="120px" scrolling="no" frameborder="no"></iframe>'+"<br><br><br>"+
-                '<button onclick="closesidebar()">Close</button>'
+                '<button2 onclick="closesidebar()">Close</button2>'
    sidebar.setContent(infopop);
    loadsound(e);
    sidebar.show()
    var coordinates = e.target.feature.geometry.coordinates;
    map.flyTo([coordinates[1],coordinates[0]-10],5);
  }
+
+ function onLocationFound(e) {
+		var radius = e.accuracy / 2;
+
+		L.marker(e.latlng).addTo(map)
+			.bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+		L.circle(e.latlng, radius).addTo(map);
+	}
+
+	function onLocationError(e) {
+		alert(e.message);
+	}
+
+	map.on('locationfound', onLocationFound);
+	map.on('locationerror', onLocationError);
+
+  L.easyButton( '<span class="star">&starf;</span>', function(){
+  features = dataGeoJSON.features
+  const randomElement = features[Math.floor(Math.random() * features.length)];
+  console.log(randomElement)
+  var coordinates = randomElement.geometry.coordinates
+  map.flyTo([coordinates[1],coordinates[0]],8);
+  }).addTo(map);
+
+  L.easyButton( '<span class="target">&target;</span>', function(){
+  map.locate({setView: true, maxZoom: 16});}, 'Location').addTo(map);
 
   function onEachFeature(feature, layer) {
     layer.bindPopup(feature.properties.name);
@@ -145,10 +164,10 @@ layout: default
     });
     }
 
-  loadJSON(function(json) {
-    var featuresLayer = new L.geoJSON(json, {
-      onEachFeature: onEachFeature
+  var featuresLayer = new L.geoJSON(dataGeoJSON, {
+  onEachFeature: onEachFeature
   }).addTo(map);
+
   var searchControl = new L.Control.Search({
 		layer: featuresLayer,
 		propertyName: 'name',
@@ -158,10 +177,8 @@ layout: default
 		}
 	});
 	
-	map.addControl( searchControl );  //inizialize search control
-  });
-
-
+  map.addControl( searchControl );  //inizialize search control
+  
 </script>
 </body>
 </html>

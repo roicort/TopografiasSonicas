@@ -1,4 +1,4 @@
-{
+var dataGeoJSON = {
     "type": "FeatureCollection",
     "features": [
       {
