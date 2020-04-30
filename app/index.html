@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: app
 title: App
 ---
 
@@ -11,6 +11,7 @@ title: App
 
   <script src="node_modules/leaflet-search/src/leaflet-search.js"></script>
   <link rel="stylesheet" href="node_modules/leaflet-search/src/leaflet-search.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/fuse.js/1.2.2/fuse.min.js"></script>
 
   <link rel="stylesheet" href="custom-skeleton.css">
 
@@ -129,7 +130,12 @@ title: App
    loadsound(e);
    sidebar.show()
    var coordinates = e.target.feature.geometry.coordinates;
-   map.flyTo([coordinates[1],coordinates[0]-10],5);
+   map.flyTo([coordinates[1],coordinates[0]]);
+ }
+
+ function zoomin(e){
+  var coordinates = e.target.feature.geometry.coordinates;
+  map.flyTo([coordinates[1],coordinates[0]],15);
  }
 
  function onLocationFound(e) {
@@ -153,7 +159,7 @@ title: App
   const randomElement = features[Math.floor(Math.random() * features.length)];
   console.log(randomElement)
   var coordinates = randomElement.geometry.coordinates
-  map.flyTo([coordinates[1],coordinates[0]],8);
+  map.flyTo([coordinates[1],coordinates[0]],18);
   }).addTo(map);
 
   L.easyButton( '<span class="target">&target;</span>', function(){
@@ -162,24 +168,56 @@ title: App
   function onEachFeature(feature, layer) {
     layer.bindPopup(feature.properties.name);
     layer.on({
-        click: deliver
+        click: deliver,
+        dblclick: zoomin
     });
     }
 
+  for (var i = 0; i < dataGeoJSON.features.length; i++) {
+    coords = dataGeoJSON.features[i].geometry.coordinates
+    dataGeoJSON.features[i].geometry.coordinates = [coords[1],coords[0]]
+  }
+  
   var featuresLayer = new L.geoJSON(dataGeoJSON, {
   onEachFeature: onEachFeature
   }).addTo(map);
 
-  var searchControl = new L.Control.Search({
-		layer: featuresLayer,
-		propertyName: 'name',
-		marker: false,
-		moveToLocation: function(coordinates, title, map) {
-  	map.flyTo([coordinates.lat,coordinates.lng],5); // access the zoom
-		}
+  var fuse = new Fuse(dataGeoJSON.features, {
+		keys: [
+			'properties.name',
+			'properties.location',
+			'properties.date',
+      'properties.time',
+      'properties.device',
+      'properties.author',
+      'properties.extension',
+      'properties.duration'
+		]
 	});
-	
-  map.addControl( searchControl );  //inizialize search control
+
+	L.control.search({
+		layer: featuresLayer,
+    propertyName: 'name',
+    moveToLocation: function(coordinates, title, map) {
+  	map.flyTo([coordinates.lat,coordinates.lng],18); // access the zoom
+		},
+		filterData: function(text, records) {
+			var jsons = fuse.search(text),
+				ret = {}, key;
+			
+			for(var i in jsons) {
+				key = jsons[i].properties.name;
+				ret[ key ]= records[key];
+			}
+
+			console.log(jsons,ret);
+			return ret;
+		}
+	})
+	.on('search:locationfound', function(e) {
+		e.layer.openPopup();
+	})
+	.addTo(map);
   
 </script>
 </body>
