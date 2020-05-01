@@ -342,8 +342,8 @@ var dataGeoJSON = {
         "geometry": {
           "type": "Point",
           "coordinates": [
-            0.0,
-            0.0
+            19.432608,
+            -99.133209
           ]
         }
       },

@@ -1,6 +1,6 @@
 ---
 layout: app
-title: App
+title: Map
 ---
 
 <html>
@@ -24,15 +24,19 @@ title: App
   <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
   <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
 
+	<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
+	<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+	<script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster-src.js"></script>
+
   <script src="dataGeoJSON.js"></script>
 
 	<style>
 		#map {
 			width: 100%;
-			height:90vh;
+			height:90.5vh;
 		}
-    .header{
-      box-shadow: inset;
+    #button2{
+      width: 100%;
     }
 	</style>
 
@@ -45,10 +49,8 @@ title: App
 <div id="sidebar"></div>
 <script>
 
-  var map = L.map('map').fitWorld();
+  var map = L.map('map');
   map.setView(new L.LatLng(23.0, -101.0), 5.4);
-
-  map.addControl(new L.Control.Fullscreen());
 
 	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
 		maxZoom: 18,
@@ -58,9 +60,32 @@ title: App
 		id: 'mapbox/streets-v11'
 	}).addTo(map);
 
-  var sidebar = L.control.sidebar('sidebar', {
-    position: 'left'
+  for (var i = 0; i < dataGeoJSON.features.length; i++) {
+    coords = dataGeoJSON.features[i].geometry.coordinates
+    dataGeoJSON.features[i].geometry.coordinates = [coords[1],coords[0]]
+  }
+  
+  var markers = L.markerClusterGroup({maxClusterRadius:10});
+
+  var geoJsonLayer = L.geoJson(dataGeoJSON, {
+    onEachFeature:   function onEachFeature(feature, layer) {
+    layer.bindPopup(feature.properties.name);
+    layer.on({
+        click: deliver,
+        dblclick: zoomin
+    });
+    }
   });
+
+  markers.addLayer(geoJsonLayer);
+
+  map.addLayer(markers);
+  
+  map.addControl(new L.Control.Fullscreen());
+
+    var sidebar = L.control.sidebar('sidebar', {
+      position: 'left'
+    });
 
   map.addControl(sidebar);
 
@@ -86,7 +111,7 @@ title: App
 }
 
  function deliver(e){
-   infopop = "<br>"+'<table class="u-full-width" >' + "<tbody>" +
+   infopop = "<br><br>"+'<iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=" width="100%" height="120px" scrolling="no" frameborder="no"></iframe>'+"<br><br><br>"+'<table class="u-full-width" >' + "<tbody>" +
                 "<tr>"+
                 "<td>" + "Name: " + "</td>" + 
                 "<td>" + e.target.feature.properties.name + "</td>" + 
@@ -132,8 +157,7 @@ title: App
                 "<td>" + e.target.feature.geometry.coordinates + "</td>" +
                 "</tr>"+
                 "</tbody>"+"</table>"+
-                '<iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=" width="100%" height="120px" scrolling="no" frameborder="no"></iframe>'+"<br><br><br>"+
-                '<button2 onclick="closesidebar()">Close</button2>'
+                '<button2 id="button2" onclick="closesidebar()">Close</button2>'+"<br><br>"
    sidebar.setContent(infopop);
    loadsound(e);
    sidebar.show()
@@ -170,25 +194,12 @@ title: App
   map.flyTo([coordinates[1],coordinates[0]],17);
   }).addTo(map);
 
+  L.easyButton( '<span class="target">&smashp;</span>', function(){
+  map.flyTo([23.0, -101.0], 5.4);}, 'Back').addTo(map);
+
   L.easyButton( '<span class="target">&target;</span>', function(){
   map.locate({setView: true, maxZoom: 8});}, 'Location').addTo(map);
 
-  function onEachFeature(feature, layer) {
-    layer.bindPopup(feature.properties.name);
-    layer.on({
-        click: deliver,
-        dblclick: zoomin
-    });
-    }
-
-  for (var i = 0; i < dataGeoJSON.features.length; i++) {
-    coords = dataGeoJSON.features[i].geometry.coordinates
-    dataGeoJSON.features[i].geometry.coordinates = [coords[1],coords[0]]
-  }
-  
-  var featuresLayer = new L.geoJSON(dataGeoJSON, {
-  onEachFeature: onEachFeature
-  }).addTo(map);
 
   var fuse = new Fuse(dataGeoJSON.features, {
 		keys: [
@@ -204,8 +215,10 @@ title: App
 	});
 
 	L.control.search({
-		layer: featuresLayer,
+		layer: markers,
     propertyName: 'name',
+    position: "topleft",
+    hideMarkerOnCollapse: true,
     moveToLocation: function(coordinates, title, map) {
   	map.flyTo([coordinates.lat,coordinates.lng],17); // access the zoom
 		},
@@ -217,8 +230,6 @@ title: App
 				key = jsons[i].properties.name;
 				ret[ key ]= records[key];
 			}
-
-			console.log(jsons,ret);
 			return ret;
 		}
 	})
@@ -226,7 +237,7 @@ title: App
     //e.layer.openPopup();
     sidebar.hide();
 	})
-	.addTo(map);
+  .addTo(map);
   
 </script>
 </body>
